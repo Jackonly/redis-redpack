@@ -5,19 +5,21 @@
 
 测试入口：genRedpack()生成红包，snatchRedpack()抢红包
 
+将127.0.0.1替换成你的redis地址。
+
 ```java
 public class TestRedpackService {
 
     @Test
     public void genRedpack(){
-        JedisUtils jedisUtils = new JedisUtils("118.89.196.99", 6379, "123456");
+        JedisUtils jedisUtils = new JedisUtils("127.0.0.1", 6379, "123456");
         RedpackService redpackService = new RedpackService(jedisUtils);
         redpackService.genRedpack(111111,5);
     }
 
     @Test
     public void snatchRedpack() throws InterruptedException {
-        JedisUtils jedisUtils = new JedisUtils("118.89.196.99", 6379, "123456");
+        JedisUtils jedisUtils = new JedisUtils("127.0.0.1", 6379, "123456");
         RedpackService redpackService = new RedpackService(jedisUtils);
         IdWorker idWorker = new IdWorker();
         int N = 100;
