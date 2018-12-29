@@ -23,16 +23,13 @@ public class TestHb {
     @Test
     public void test2(){
         JedisUtils jedisUtils = new JedisUtils("118.89.196.99", 6379, "123456");
-
         Object object = jedisUtils.eval(LuaScript.getHbLua,4,"hb:pool:123456","hb:detailList:123456","hb:rd:123456","11111");
         if ("0".equals(object)){
             System.out.println("hb result:" + object + "已领完");
         }
-
         if ("1".equals(object)){
             System.out.println("hb result:" + object + "已领取");
         }
-
     }
 
 

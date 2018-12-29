@@ -7,7 +7,7 @@ public class RedisKeys {
      * @param orderId
      * @return
      */
-    public String getHbPoolKey(String orderId){
+    public static String getHbPoolKey(Long orderId){
         return "hb:pool:" + orderId;
     }
 
@@ -16,7 +16,7 @@ public class RedisKeys {
      * @param orderId
      * @return
      */
-    public String getHbRdKey(String orderId){
+    public static String getHbRdKey(Long orderId){
         return "hb:rd:" + orderId;
     }
 
@@ -25,7 +25,7 @@ public class RedisKeys {
      * @param orderId
      * @return
      */
-    public String getDetailListKey(String orderId){
+    public static String getDetailListKey(Long orderId){
         return "hb:detailList:" + orderId;
     }
 
