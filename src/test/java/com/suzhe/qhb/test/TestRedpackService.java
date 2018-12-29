@@ -31,21 +31,22 @@ public class TestRedpackService {
 
         for (int i = 0;i<N;i++){
             new Thread(()->{
+                long userId = idWorker.nextId();
                 try {
-                    System.out.println(Thread.currentThread().getName()+"准备抢红包");
+                    System.out.println("用户"+userId+"准备抢红包");
                     barrier.await();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } catch (BrokenBarrierException e) {
                     e.printStackTrace();
                 }
-                String result = redpackService.snatchRedpack(idWorker.nextId(), 111111);
+                String result = redpackService.snatchRedpack(userId, 111111);
                 if ("0".equals(result)){
-                    System.out.println(Thread.currentThread().getName() + "未抢到红包，原因：红包已领完");
+                    System.out.println("用户" + userId + "未抢到红包，原因：红包已领完");
                 }else if ("1".equals(result)){
-                    System.out.println(Thread.currentThread().getName() + "未抢到红包，原因：红包已领过");
+                    System.out.println("用户" + userId + "未抢到红包，原因：红包已领过");
                 }else{
-                    System.out.println(Thread.currentThread().getName() + "抢到红包：" + result);
+                    System.out.println("用户" + userId + "抢到红包：" + result);
                 }
             },"thread"+i).start();
         }
