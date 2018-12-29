@@ -29,7 +29,7 @@ public class RedpackService {
             //将生成的红包push到redis中
             for (int i = 0;i < redpacks.length; i++){
                 JSONObject object = new JSONObject();
-                object.put("hbId", i); //红包ID
+                object.put("hbId", i+1); //红包ID
                 object.put("amount", redpacks[i]);   //红包金额,存的是分
                 list[i] = object.toJSONString();
             }
