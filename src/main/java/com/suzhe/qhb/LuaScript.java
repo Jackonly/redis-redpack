@@ -14,7 +14,7 @@ public interface LuaScript {
      *
      */
     public static String getHbLua =
-            //查询用户是否已抢过红包，如果用户已抢过红包，则直接返回nil 
+            //查询用户是否已抢过红包，如果用户已抢过红包，则直接返回
             "if redis.call('hexists', KEYS[3], KEYS[4]) ~= 0 then\n"   +
                     //如果抢过红包 返回“1”
                     "return '1';\n" +
