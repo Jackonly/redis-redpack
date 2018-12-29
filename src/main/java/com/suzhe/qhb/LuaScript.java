@@ -5,11 +5,11 @@ public interface LuaScript {
     /**
      * 脚本调用方式
      * Object object = jedisUtils.eval(LuaScript.getHbLua,//lua脚本
-     * 4,//参数个数
-     *  RedisKeys.getHbPoolKey(orderId),//对应脚本里的KEYS[1]
-     *  RedisKeys.getDetailListKey(orderId),//对应脚本里的KEYS[2]
-     *  RedisKeys.getHbRdKey(orderId),//对应脚本里的KEYS[3]
-     *  String.valueOf(userId));//对应脚本里的KEYS[4]
+      4,//参数个数
+       RedisKeys.getHbPoolKey(orderId),//对应脚本里的KEYS[1]
+       RedisKeys.getDetailListKey(orderId),//对应脚本里的KEYS[2]
+       RedisKeys.getHbRdKey(orderId),//对应脚本里的KEYS[3]
+       String.valueOf(userId));//对应脚本里的KEYS[4]
      *
      *
      */
@@ -21,7 +21,7 @@ public interface LuaScript {
                     "else\n"  +
                     //从红包池取出一个小红包
                     "local hb = redis.call('rpop', KEYS[1]);\n"  +
-                    //判断红包池的红包是否为不空
+                    //判断红包池的红包不为空
                     "if hb then\n"  +
                     "local x = cjson.decode(hb);\n"  +
                     //将红包信息与用户ID信息绑定，表示该用户已抢到红包 
